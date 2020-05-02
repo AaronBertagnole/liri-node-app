@@ -21,12 +21,13 @@ var concertThis = function (artist) {
     .then(function (response) {
       for (var i = 0; i < response.data.length; i++) {
         outputData("Venue: " + response.data[i].venue.name);
-        outputData("Location: " + response.data[i].venue.city +
+        outputData(
+          "Location: " +
+            response.data[i].venue.city +
             ", " +
             response.data[i].venue.country
         );
         outputData("Date: " + moment(response.data[i].datetime).format("L"));
-        
       }
     });
 };
@@ -55,23 +56,22 @@ var spotifyThisSong = function (song) {
   });
 };
 
-var movieThis = function(movie){
+var movieThis = function (movie) {
+  if (!movie) {
+    movie = "Mr.+Nobody";
+  }
 
-    if(!movie){
-        movie = "Mr.+Nobody"
-    }
-
-    axios.get("http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy")
-    .then(function (response){
-        outputData("Release Year: " + response.data.Title)
-        outputData("Release Year: " + response.data.)
-        outputData("Release Year: " + response.data.)
-        outputData("Release Year: " + response.data.)
-        outputData("Release Year: " + response.data.)
-        outputData("Release Year: " + response.data.)
-        outputData("Release Year: " + response.data.)
-        outputData("Release Year: " + response.data.)
-
+  axios
+    .get("http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy")
+    .then(function (response) {
+      outputData("Title : " + response.data.Title);
+      outputData("Release Year: " + response.data.Year);
+      outputData("imdbRating: " + response.data.imdbRating);
+      outputData("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
+      outputData("Country: " + response.data.Country);
+      outputData("Language: " + response.data.Language);
+      outputData("Plot: " + response.data.Plot);
+      outputData("Actors: " + response.data.Actors);
     });
 };
 
@@ -92,6 +92,9 @@ var runAction = function (func, data) {
       break;
     case "spotify-this-song":
       spotifyThisSong(data);
+      break;
+    case "movie-this":
+      movieThis(data);
       break;
     default:
       outputData("I don't know what that means. Please try again.");
