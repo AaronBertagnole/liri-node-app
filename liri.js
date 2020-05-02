@@ -74,7 +74,16 @@ var movieThis = function (movie) {
       outputData("Actors: " + response.data.Actors);
     });
 };
+var doWhatItSays = function () {
+  fs.readFile("random.txt", "utf8", function (err, data) {
+    if (err) {
+      return console.log(err);
+    }
 
+    var dataArray = data.split(",");
+    runAction(dataArray[0], dataArray[1]);
+  });
+};
 var outputData = function (data) {
   console.log(data);
 
@@ -95,6 +104,9 @@ var runAction = function (func, data) {
       break;
     case "movie-this":
       movieThis(data);
+      break;
+    case "do-what-it-says":
+      doWhatItSays();
       break;
     default:
       outputData("I don't know what that means. Please try again.");
