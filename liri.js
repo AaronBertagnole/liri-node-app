@@ -40,7 +40,7 @@ var spotifyThisSong = function (song) {
 
   var spotify = new Spotify(keys.spotify);
 
-  spotify.search({ type: "track", query: song, limit: 3 }, function (
+  spotify.search({ type: "track", query: song, limit: 1 }, function (
     err,
     data
   ) {
@@ -113,4 +113,4 @@ var runAction = function (func, data) {
   }
 };
 
-runAction(process.argv[2], process.argv[3]);
+runAction(process.argv[2], process.argv.slice(3).join(" "));
