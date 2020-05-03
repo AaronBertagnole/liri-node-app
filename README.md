@@ -4,6 +4,8 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
 ## The LIRI bot was made to produce results based on certain commands
 
+### These are the commands
+
 - node liri concert-this "artist or band name"
   - the name of a venue.
   - the location of the venue.
@@ -26,7 +28,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
   - Rotten Tomatoes rating 
 
 - node liri do-what-it-says
-  - shows the data in the random.txt file 
+  - shows the data in the random.txt file
 
 **Screenshot**
 ![different commands used](./images/markdown-image.png)
