@@ -4,8 +4,13 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
 ## The LIRI bot was made to produce results based on certain commands
 
+### Getting Started
+- Clone the repo to your computer
+ - Open the repo in your preferred IDE(Sublime, vsCode, etc..)  
+ - Open terminal or git bash, cd into the directory you cloned the repo.
+ - Run npm install after everything installs run npm start and run one of the commands below ↓↓
+  
 ### These are the commands
-
 - node liri concert-this "artist or band name"
   - the name of a venue.
   - the location of the venue.
